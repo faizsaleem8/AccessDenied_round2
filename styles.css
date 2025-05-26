@@ -1,0 +1,539 @@
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #001524;
+  color: #FFECD1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  max-width: 1400px;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 1rem;
+}
+
+.main-title h2 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #FF7D00;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 10px rgba(255, 125, 0, 0.3);
+}
+
+.main-title .logo {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.title-container {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #FFECD1, #FF7D00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.usb-wrapper {
+  display: flex;
+  gap: 30px;
+  perspective: 1500px;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+  max-width: 1000px;
+}
+
+.usb-card {
+  width: 280px;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.usb-card:hover {
+  transform: translateY(-8px);
+}
+
+.usb-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.usb-card.flipped .usb-inner {
+  transform: rotateY(180deg);
+}
+
+.usb-front, .usb-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  background: #15616D;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  padding: 20px;
+  border: 1px solid rgba(255, 236, 209, 0.2);
+}
+
+.usb-front {
+  background: linear-gradient(135deg, #15616D, #001524);
+}
+
+.usb-front img {
+  width: 60%;
+  margin-top: 15px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+.usb-front:hover img {
+  transform: scale(1.05);
+}
+
+/* Remove tooltip styles since we're not using them anymore */
+.tooltip {
+  display: none;
+}
+
+.usb-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #15616D, #001524);
+}
+
+.usb-back h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(45deg, #FFECD1, #FF7D00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.usb-back p {
+  font-size: 1rem;
+  color: #FFECD1;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Update metadata box styles */
+.metadata-box {
+  position: absolute;
+  bottom: -160px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 90%;
+  background: #15616D;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 236, 209, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+/* Show metadata box on hover */
+.usb-card:hover .metadata-box {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.metadata-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  color: #FFECD1;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 236, 209, 0.2);
+}
+
+.metadata-box .file-info {
+  background: rgba(0, 21, 36, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.metadata-box p {
+  margin: 0;
+  color: #FFECD1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: 'Consolas', monospace;
+  white-space: pre-line;
+}
+
+.metadata-box .warning {
+  color: #FF7D00;
+  font-weight: 500;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 236, 209, 0.1);
+}
+
+#resetBtn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #FF7D00;
+  color: #001524;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+#resetBtn:hover {
+  background: #78290F;
+  color: #FFECD1;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+#resetBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .main-title h2 {
+    font-size: 2.2rem;
+  }
+  
+  .main-title .logo {
+    height: 40px;
+  }
+  
+  .usb-wrapper {
+    gap: 40px;
+  }
+  
+  .usb-card {
+    width: 260px;
+    height: 300px;
+  }
+  
+  .metadata-box {
+    bottom: -150px;
+    width: 95%;
+    padding: 12px;
+  }
+  
+  .title-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .container {
+    padding: 15px;
+  }
+}
+
+.warning-text {
+  position: absolute;
+  left: -600px;
+  top: -400px;
+  transform: translateY(-50%) rotate(-15deg);
+  background: #001524;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 125, 0, 0.3),
+              inset 0 0 10px rgba(255, 125, 0, 0.2);
+  border: 2px solid #FF7D00;
+  max-width: 250px;
+  text-align: left;
+  animation: float 3s ease-in-out infinite;
+  z-index: 10;
+  font-family: 'Consolas', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.warning-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF7D00, transparent);
+  animation: scan 2s linear infinite;
+}
+
+.warning-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 125, 0, 0.03) 0px,
+    rgba(255, 125, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.warning-text2 p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FF7D00;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  font-family: 'Consolas', monospace;
+  text-shadow: 0 0 5px rgba(255, 125, 0, 0.5);
+  position: relative;
+}
+
+.warning-text2 p::before {
+  content: '> ';
+  color: #FF7D00;
+  animation: blink 1s step-end infinite;
+}
+
+.warning-text2 {
+  position: absolute;
+  left: -600px;
+  top: -300px;
+  transform: translateY(-50%) rotate(-15deg);
+  background: #001524;
+  padding: 18px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 125, 0, 0.3),
+              inset 0 0 10px rgba(255, 125, 0, 0.2);
+  border: 2px solid #FF7D00;
+  max-width: 250px;
+  text-align: left;
+  animation: float 3s ease-in-out infinite;
+  z-index: 10;
+  font-family: 'Consolas', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.warning-text2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF7D00, transparent);
+  animation: scan 2s linear infinite;
+}
+
+.warning-text3::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 125, 0, 0.03) 0px,
+    rgba(255, 125, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.warning-text3 p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FF7D00;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  font-family: 'Consolas', monospace;
+  text-shadow: 0 0 5px rgba(255, 125, 0, 0.5);
+  position: relative;
+}
+
+.warning-text3 p::before {
+  content: '> ';
+  color: #FF7D00;
+  animation: blink 1s step-end infinite;
+}
+
+.warning-text3 {
+  position: absolute;
+  right: -630px;
+  top: -498px;
+  transform: translateY(-50%) rotate(15deg);
+  background: #001524;
+  padding: 18px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 125, 0, 0.3),
+              inset 0 0 10px rgba(255, 125, 0, 0.2);
+  border: 2px solid #FF7D00;
+  max-width: 250px;
+  text-align: left;
+  animation: float3 3s ease-in-out infinite;
+  z-index: 10;
+  font-family: 'Consolas', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+.warning-text3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF7D00, transparent);
+  animation: scan 2s linear infinite;
+}
+
+.warning-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 125, 0, 0.03) 0px,
+    rgba(255, 125, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.warning-text p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FF7D00;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  font-family: 'Consolas', monospace;
+  text-shadow: 0 0 5px rgba(255, 125, 0, 0.5);
+  position: relative;
+}
+
+.warning-text p::before {
+  content: '> ';
+  color: #FF7D00;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-50%) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(-18deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(-12deg);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translateY(-50%) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(18deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(12deg);
+  }
+}
+
+@media (max-width: 1400px) {
+  .warning-text {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: rotate(-5deg);
+    margin: 20px auto;
+    animation: none;
+  }
+  
+  .warning-text::before {
+    animation: none;
+  }
+}
