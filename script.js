@@ -5,19 +5,19 @@ const resetBtn = document.getElementById('resetBtn');
 const usbData = [
   {
     type: 'A',
-    person: { name: 'Username: xyz', location: 'Before the chase, there was a spark — return to where it was lit.' },
+    person: { name: 'Password: Correct Password', location: 'Before the chase, there was a spark, Return to where it was lit.' },
     metadata: {
-      fileName: 'Project_Data_2023.pdf',
-      author: 'Admin_BMT',
-      lastModified: '20/01/2025',
+      fileName: 'Project_Data_2025.pdf',
+      author: 'AccessDenied_Admin_BMSIT',
+      lastModified: '20/10/2025',
       size: '1.2 MB'
     }
   },
   {
     type: 'B',
-    person: { name: 'Username: Abc', location: 'Not every lift climbs high — find the one in the lab block that does.' },
+    person: { name: 'Password: Wrong Password', location: 'Where coffee compiles, hunger gets debugged, and the breeze flows by the ground and parked machines.' },
     metadata: {
-      fileName: 'Free_Screensaver.exe',
+      fileName: 'Password.txt',
       author: '-',
       lastModified: '25/12/2016',
       size: '5.1 MB'
@@ -25,12 +25,12 @@ const usbData = [
   },
   {
     type: 'C',
-    person: { name: 'Username: efg', location: 'A space made for the bros — downtime lives here' },
+    person: { name: 'Password: Wrong Password', location: 'A place where students go to gather knowledge' },
     metadata: {
-      fileName: 'Invoice_2020.scr',
+      fileName: 'Club_event_details.pdf',
       author: 'Root_X',
       lastModified: '01/01/2020',
-      size: '512 KB'
+      size: '12 KB',
     }
   }
 ];
