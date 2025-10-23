@@ -15,7 +15,7 @@ const usbData = [
   },
   {
     type: 'B',
-    person: { name: 'Password: OpENdoOR#BluEBerrY&SkY', location: 'Where coffee compiles, hunger gets debugged, and the breeze flows by the ground and parked machines.' },
+    person: { name: 'Password: OpENdoOR#BluEBerrY', location: 'Where coffee compiles, hunger gets debugged, and the breeze flows by the ground and parked machines.' },
     metadata: {
       fileName: 'Password.txt',
       author: '-',
@@ -25,7 +25,7 @@ const usbData = [
   },
   {
     type: 'C',
-    person: { name: 'Password: AcceSSgrANted#PeAch&DrEams', location: 'A place where students go to gather knowledge' },
+    person: { name: 'Password: AcceSSgrANted#PeAch&Dr', location: 'A place where students go to gather knowledge' },
     metadata: {
       fileName: 'Club_event_details.pdf',
       author: 'Root_X',
