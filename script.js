@@ -5,7 +5,7 @@ const resetBtn = document.getElementById('resetBtn');
 const usbData = [
   {
     type: 'A',
-    person: { name: 'Password: Correct Password', location: 'Before the chase, there was a spark, Return to where it was lit.' },
+    person: { name: 'Password: LeTMEin#StrawberRY&FIelds', location: 'Before the chase, there was a spark, Return to where it was lit.' },
     metadata: {
       fileName: 'Project_Data_2025.pdf',
       author: 'AccessDenied_Admin_BMSIT',
@@ -15,7 +15,7 @@ const usbData = [
   },
   {
     type: 'B',
-    person: { name: 'Password: Wrong Password', location: 'Where coffee compiles, hunger gets debugged, and the breeze flows by the ground and parked machines.' },
+    person: { name: 'Password: OpENdoOR#BluEBerrY&SkY', location: 'Where coffee compiles, hunger gets debugged, and the breeze flows by the ground and parked machines.' },
     metadata: {
       fileName: 'Password.txt',
       author: '-',
@@ -25,7 +25,7 @@ const usbData = [
   },
   {
     type: 'C',
-    person: { name: 'Password: Wrong Password', location: 'A place where students go to gather knowledge' },
+    person: { name: 'Password: AcceSSgrANted#PeAch&DrEams', location: 'A place where students go to gather knowledge' },
     metadata: {
       fileName: 'Club_event_details.pdf',
       author: 'Root_X',
